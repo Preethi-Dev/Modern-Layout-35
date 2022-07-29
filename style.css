@@ -92,6 +92,12 @@ img {
   transform: rotate(180deg);
 }
 
+.container .content .image img {
+  width: 100%;
+  min-height: 50vh;
+  object-fit: cover;
+}
+
 .container .image {
   text-align: center;
 }
