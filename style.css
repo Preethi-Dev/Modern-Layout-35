@@ -1,5 +1,156 @@
 /* Resets */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* Fonts */
+@font-face {
+  font-family: "Phenomenologist";
+  src: url(./asstes/fonts/PhenomenologistRegular-BE13.ttf);
+}
+
 /* Variables */
+:root {
+  --primary: #111111;
+  --secondary: #fafafa;
+}
+
 /* Base Styles */
+body {
+  background-color: var(--secondary);
+  color: var(--primary);
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.container .title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container .title p {
+  font-family: "Phenomenologist";
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.container .content p {
+  font-family: "Phenomenologist";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 22px;
+}
+
 /* Mobile Styles */
+.container {
+  display: grid;
+  grid-template-columns: [col-start] repeat(4, [col-start] 1fr) [col-end];
+  place-items: center;
+  grid-gap: 1rem;
+  padding: 1.5rem 1.5rem 0;
+}
+
+.container > * {
+  grid-column: col-start / col-end;
+}
+
+.container .title {
+  grid-row: 1;
+}
+
+.container .title p {
+  font-size: 3.75rem;
+}
+
+.container .content {
+  display: flex;
+  align-items: flex-end;
+
+  grid-row: 2;
+}
+
+.container .content p {
+  padding: 1.5rem;
+  writing-mode: vertical-lr;
+}
+
+.container .content p:nth-child(1) {
+  transform: rotate(180deg);
+}
+
+.container .image {
+  text-align: center;
+}
+
+.container > .image img {
+  max-width: 50%;
+}
+
+/* Tablet styles */
+@media screen and (min-width: 700px) {
+  .container .title p {
+    font-size: 8.75rem;
+  }
+
+  .container > .image {
+    grid-row: 1 / span 2;
+    place-self: start;
+    z-index: 1;
+  }
+
+  .container > .image img {
+    max-width: 100%;
+  }
+}
+
+/* Laptop styles */
+@media screen and (min-width: 960px) {
+  .container .title p {
+    font-size: 10.75rem;
+  }
+
+  .container {
+    position: relative;
+  }
+
+  .container > .image {
+    position: absolute;
+    top: 5rem;
+    left: 5rem;
+  }
+}
+
+/* Desktop styles */
+@media screen and (min-width: 1200px) {
+  .container .title {
+    gap: 4.5rem;
+  }
+
+  .container .title p {
+    font-size: 13.75rem;
+  }
+
+  .container > .image {
+    position: absolute;
+    top: 8rem;
+    left: 16rem;
+  }
+
+  .container .content p {
+    padding: 4.5rem;
+  }
+}
